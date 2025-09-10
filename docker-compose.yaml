@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  backend:
+    build: backend
+    hostname: backend-host
+    volumes:
+      - ./backend:/app
+    ports:
+      - "5000:5000"
+    networks:
+      - tutedude-task
+
+  frontend:
+    build: frontend
+    hostname: frontend-host
+    volumes:
+      - ./frontend:/app 
+    environment:
+      - BACKEND_URL=http://backend-host:5000/submit
+    networks:
+      - tutedude-task
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+networks:
+  tutedude-task: {}
