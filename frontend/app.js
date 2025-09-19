@@ -3,7 +3,7 @@ const axios = require("axios");
 const bodyParser = require("body-parser");
 const path = require("path"); 
 
-const URL=process.env.BACKEND_URL || "http://localhost:8150/submit";
+const URL=process.env.BACKEND_URL || "http://localhost:3000/submit";
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -24,6 +24,6 @@ app.post("/submit", async (req, res) => {
   }
 });
 
-app.listen(7000, () => {
-  console.log("Frontend running on port 7000");
+app.listen(5000, () => {
+  console.log("Frontend running on port 5000");
 });
